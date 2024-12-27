@@ -1,0 +1,26 @@
+{
+  "title": "Experience",
+  "experiences": [
+    {
+      "id": 1,
+      "role": "Software Engineer",
+      "company": "Anadolu Hayat Emeklilik",
+      "companyDescription": "Anadolu Life Insurance and Pensions",
+      "location": "Istanbul, Turkey",
+      "period": "08/2023 – Present",
+      "achievements": [
+        "Redesigning the company's core pension ecosystem to deliver a more robust and scalable solution, driving efficiency and adaptability in business operations.",
+        "Developed and maintained dynamic web applications using TypeScript, focusing on enhancing performance, maintainability, and scalability across platforms.",
+        "Specialized in building responsive user interfaces with Bootstrap 5, improving accessibility and user experience while ensuring cross-browser compatibility.",
+        "Implemented Webpack Module Federation to facilitate seamless sharing of modules across independently deployed applications, enabling a scalable and efficient microfrontend architecture."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Bootstrap 5",
+        "Webpack",
+        "Module Federation",
+        "Microfrontends"
+      ]
+    }
+  ]
+}

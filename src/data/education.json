@@ -1,0 +1,29 @@
+{
+  "title": "Education",
+  "education": [
+    {
+      "id": 1,
+      "school": "Georgia Institute of Technology",
+      "degree": "Master of Science - Computer Science",
+      "period": "08/2023 – Present",
+      "location": "Remote | Atlanta, United States",
+      "details": ["Specialization in Machine Learning & AI"],
+      "logo": "/images/gt-logo.png"
+    },
+    {
+      "id": 2,
+      "school": "Georgia State University",
+      "degree": "Bachelor of Science - Computer Science",
+      "period": "2018 – 2022",
+      "location": "Atlanta, United States",
+      "details": [
+        "Cumulative GPA: 3.74",
+        "Magna Cum Laude",
+        "Hope Scholarship",
+        "President's List (3 Semesters)",
+        "Dean's List (6 Semesters)"
+      ],
+      "logo": "/images/gsu-logo.png"
+    }
+  ]
+}
