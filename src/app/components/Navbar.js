@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from 'next/link'; // Added Link
+import { usePathname } from 'next/navigation'; // Added usePathname
 import {
   FaUser,
   FaCode,
@@ -63,6 +65,7 @@ const glitchKeyframes = `
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("about");
+  const pathname = usePathname(); // Added pathname
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -115,10 +118,13 @@ const Navbar = () => {
     }
   };
 
-  const getNavItemStyles = (id, colorClasses) => {
-    const isActive = activeSection === id;
+  const getNavItemStyles = (id, colorClasses, href) => { // Added href
+    let isActive = activeSection === id;
+    if (href) { // If it's a link, base active state on pathname
+      isActive = pathname === href || pathname.startsWith(`${href}/`);
+    }
     const baseStyles =
-      "relative group px-4 py-2 text-xs uppercase transition-all duration-300 cursor-pointer hover:scale-105 w-full md:w-auto";
+      "relative group px-4 py-2 text-xs uppercase transition-all duration-300 cursor-pointer hover:scale-105 w-full md:w-auto text-center md:text-left"; // Added text-center md:text-left for consistency
     const textStyles = isActive
       ? `text-white ${colorClasses.active} shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transform active:translate-y-1 
          ring-2 ring-offset-2 ring-offset-gray-900 ring-opacity-60 ${colorClasses.glow}
@@ -195,6 +201,7 @@ const Navbar = () => {
       id: "blog",
       label: "Blog",
       icon: FaBook,
+      href: "/blog", // Added href
       colorClasses: {
         active: "bg-red-600 hover:bg-red-700",
         hover: "hover:bg-red-600",
@@ -236,20 +243,13 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex w-full justify-between items-center">
-            {navItems.map(({ id, label, icon: Icon, colorClasses }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`${getNavItemStyles(
-                  id,
-                  colorClasses
-                )} group relative overflow-hidden`}
-              >
+            {navItems.map(({ id, label, icon: Icon, colorClasses, href }) => {
+              const navItemContent = (
                 <span className="relative z-10 flex items-center gap-2">
                   <Icon className="text-base transform group-hover:scale-110 transition-transform duration-200" />
                   <span className="relative">
                     {label}
-                    {activeSection === id && (
+                    {((href && (pathname === href || pathname.startsWith(`${href}/`))) || (!href && activeSection === id)) && (
                       <span
                         className="absolute inset-0 animate-[glitch_3s_infinite] opacity-70"
                         aria-hidden="true"
@@ -259,8 +259,30 @@ const Navbar = () => {
                     )}
                   </span>
                 </span>
-              </button>
-            ))}
+              );
+
+              if (href) {
+                return (
+                  <Link
+                    key={id}
+                    href={href}
+                    className={`${getNavItemStyles(id, colorClasses, href)} group relative overflow-hidden`}
+                  >
+                    {navItemContent}
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={id}
+                    onClick={() => scrollToSection(id)}
+                    className={`${getNavItemStyles(id, colorClasses, href)} group relative overflow-hidden`}
+                  >
+                    {navItemContent}
+                  </button>
+                );
+              }
+            })}
           </div>
         </div>
 
@@ -273,20 +295,13 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col space-y-2 py-4">
-            {navItems.map(({ id, label, icon: Icon, colorClasses }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`${getNavItemStyles(
-                  id,
-                  colorClasses
-                )} group relative overflow-hidden`}
-              >
-                <span className="relative z-10 flex items-center gap-2 justify-center md:justify-start">
+            {navItems.map(({ id, label, icon: Icon, colorClasses, href }) => {
+              const navItemContent = (
+                 <span className="relative z-10 flex items-center gap-2 justify-center"> {/* Mobile items are centered */}
                   <Icon className="text-base transform group-hover:scale-110 transition-transform duration-200" />
                   <span className="relative">
                     {label}
-                    {activeSection === id && (
+                    {((href && (pathname === href || pathname.startsWith(`${href}/`))) || (!href && activeSection === id)) && (
                       <span
                         className="absolute inset-0 animate-[glitch_3s_infinite] opacity-70"
                         aria-hidden="true"
@@ -296,8 +311,31 @@ const Navbar = () => {
                     )}
                   </span>
                 </span>
-              </button>
-            ))}
+              );
+
+              if (href) {
+                return (
+                  <Link
+                    key={id}
+                    href={href}
+                    onClick={() => setIsMenuOpen(false)} // Close menu on mobile
+                    className={`${getNavItemStyles(id, colorClasses, href)} group relative overflow-hidden`}
+                  >
+                    {navItemContent}
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={id}
+                    onClick={() => scrollToSection(id)}
+                    className={`${getNavItemStyles(id, colorClasses, href)} group relative overflow-hidden`}
+                  >
+                    {navItemContent}
+                  </button>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
