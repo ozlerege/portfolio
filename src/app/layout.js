@@ -1,24 +1,43 @@
-import { Press_Start_2P } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
-const pressStart2P = Press_Start_2P({
-  weight: "400",
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-mono",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "Ege Özler",
-  description: "Ege's personal portfolio website",
+  title: "Ege Özler - Full Stack Developer",
+  description: "Professional portfolio of Ege Özler, a skilled full-stack developer specializing in modern web technologies, AI integration, and scalable software solutions.",
+  keywords: ["Ege Özler", "Full Stack Developer", "Software Engineer", "Web Developer", "React", "Node.js", "Portfolio"],
+  authors: [{ name: "Ege Özler" }],
+  creator: "Ege Özler",
+  publisher: "Ege Özler",
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    title: "Ege Özler - Full Stack Developer",
+    description: "Professional portfolio showcasing expertise in full-stack development, AI integration, and modern web technologies.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ege Özler - Full Stack Developer",
+    description: "Professional portfolio showcasing expertise in full-stack development, AI integration, and modern web technologies.",
+  },
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${pressStart2P.className} antialiased`}>
+    <html lang="en" className={ibmPlexMono.variable}>
+      <body className="font-mono antialiased">
         <Navbar />
         <main className="mx-auto">{children}</main>
       </body>
