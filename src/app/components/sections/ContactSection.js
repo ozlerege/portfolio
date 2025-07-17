@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
+import { FaEnvelope, FaUser, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaEdit, FaComments } from "react-icons/fa";
 
 const contactContent = {
   title: "Get in Touch",
-  description: "Feel free to reach out! I'm always open to new connections.",
+  description: "Ready to collaborate? Let's create something amazing together.",
 };
 
 export default function ContactSection() {
@@ -124,25 +125,40 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-blue-50 to-blue-100"
+      className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-800">
-              {contactContent.title}
-            </h1>
-            <p className="text-lg text-gray-600 mt-4">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        <div className="max-w-4xl mx-auto space-y-16">
+          
+          {/* Section Header */}
+          <div className="text-center space-y-4 animate-fade-in-up">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <FaEnvelope className="w-4 h-4 mr-2" />
+              Let's Connect
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+              <span className="text-gradient">{contactContent.title}</span>
+            </h2>
+            <p className="text-xl text-gray-800 max-w-2xl mx-auto">
               {contactContent.description}
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 shadow-[8px_8px_0px_0px_rgba(59,130,246,0.3)] border-2 border-blue-200">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-8 lg:p-12 animate-fade-in-up">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              
+              {/* Name and Email Row */}
               <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                    <FaUser className="w-4 h-4" />
                     Your Name
                   </label>
                   <input
@@ -152,17 +168,24 @@ export default function ContactSection() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     required
-                    placeholder="John Doe"
-                    className={`w-full px-4 py-2 border-2 ${
-                      errors.name ? "border-red-500" : "border-gray-200"
-                    } focus:border-blue-500 outline-none transition-colors duration-300 text-gray-800 placeholder-gray-400 bg-white`}
+                    placeholder="Enter your full name"
+                    className={`w-full px-4 py-3 border-2 rounded-lg ${
+                      errors.name 
+                        ? "border-red-500 focus:border-red-500" 
+                        : "border-gray-300 focus:border-blue-500"
+                    } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                      <FaExclamationCircle className="w-3 h-3" />
+                      {errors.name}
+                    </p>
                   )}
                 </div>
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                    <FaEnvelope className="w-4 h-4" />
                     Your Email
                   </label>
                   <input
@@ -172,19 +195,26 @@ export default function ContactSection() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     required
-                    placeholder="john@example.com"
-                    className={`w-full px-4 py-2 border-2 ${
-                      errors.email ? "border-red-500" : "border-gray-200"
-                    } focus:border-blue-500 outline-none transition-colors duration-300 text-gray-800 placeholder-gray-400 bg-white`}
+                    placeholder="Enter your email address"
+                    className={`w-full px-4 py-3 border-2 rounded-lg ${
+                      errors.email 
+                        ? "border-red-500 focus:border-red-500" 
+                        : "border-gray-300 focus:border-blue-500"
+                    } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                      <FaExclamationCircle className="w-3 h-3" />
+                      {errors.email}
+                    </p>
                   )}
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
+              {/* Subject */}
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                  <FaEdit className="w-4 h-4" />
                   Subject
                 </label>
                 <input
@@ -194,18 +224,25 @@ export default function ContactSection() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   required
-                  placeholder="Your message subject"
-                  className={`w-full px-4 py-2 border-2 ${
-                    errors.subject ? "border-red-500" : "border-gray-200"
-                  } focus:border-blue-500 outline-none transition-colors duration-300 text-gray-800 placeholder-gray-400 bg-white`}
+                  placeholder="What would you like to discuss?"
+                  className={`w-full px-4 py-3 border-2 rounded-lg ${
+                    errors.subject 
+                      ? "border-red-500 focus:border-red-500" 
+                      : "border-gray-300 focus:border-blue-500"
+                  } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-red-500">{errors.subject}</p>
+                  <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                    <FaExclamationCircle className="w-3 h-3" />
+                    {errors.subject}
+                  </p>
                 )}
               </div>
 
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
+              {/* Message */}
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                  <FaComments className="w-4 h-4" />
                   Message
                 </label>
                 <textarea
@@ -214,34 +251,57 @@ export default function ContactSection() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   required
-                  rows="4"
-                  placeholder="Type your message here..."
-                  className={`w-full px-4 py-2 border-2 ${
-                    errors.message ? "border-red-500" : "border-gray-200"
-                  } focus:border-blue-500 outline-none transition-colors duration-300 text-gray-800 placeholder-gray-400 bg-white`}
+                  rows="6"
+                  placeholder="Tell me about your project, idea, or opportunity..."
+                  className={`w-full px-4 py-3 border-2 rounded-lg ${
+                    errors.message 
+                      ? "border-red-500 focus:border-red-500" 
+                      : "border-gray-300 focus:border-blue-500"
+                  } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white resize-none`}
                 ></textarea>
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                  <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                    <FaExclamationCircle className="w-3 h-3" />
+                    {errors.message}
+                  </p>
                 )}
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full bg-blue-600 text-white py-3 px-6 hover:bg-blue-700 transition-colors duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] active:translate-y-1 disabled:opacity-50"
+                className="w-full btn-professional group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === "sending" ? "Sending..." : "Send Message"}
+                {status === "sending" ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                    Send Message
+                  </>
+                )}
               </button>
 
+              {/* Status Messages */}
               {status === "success" && (
-                <p className="text-green-600 text-center">
-                  Message sent successfully!
-                </p>
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-700 text-center flex items-center justify-center gap-2">
+                    <FaCheckCircle className="w-5 h-5" />
+                    Message sent successfully! I'll get back to you soon.
+                  </p>
+                </div>
               )}
               {status === "error" && (
-                <p className="text-red-600 text-center">
-                  Failed to send message. Please try again.
-                </p>
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-700 text-center flex items-center justify-center gap-2">
+                    <FaExclamationCircle className="w-5 h-5" />
+                    Failed to send message. Please try again or contact me directly.
+                  </p>
+                </div>
               )}
             </form>
           </div>
