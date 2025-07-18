@@ -10,7 +10,6 @@ import {
   FaEnvelope,
   FaBars,
   FaTimes,
-  FaBook,
 } from "react-icons/fa";
 
 // Add keyframes for glitch effect
@@ -85,7 +84,6 @@ const Navbar = () => {
         "experience",
         "education",
         "contact",
-        "blog",
       ];
       const scrollPosition = window.scrollY + 100;
 
@@ -126,12 +124,12 @@ const Navbar = () => {
     const baseStyles =
       "relative group px-4 py-2 text-xs uppercase transition-all duration-300 cursor-pointer hover:scale-105 w-full md:w-auto text-center md:text-left"; // Added text-center md:text-left for consistency
     const textStyles = isActive
-      ? `text-white ${colorClasses.active} shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transform active:translate-y-1 
-         ring-2 ring-offset-2 ring-offset-gray-900 ring-opacity-60 ${colorClasses.glow}
+      ? `${colorClasses.active} shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] transform active:translate-y-1 
+         ring-2 ring-offset-2 ring-offset-black ring-opacity-60 ${colorClasses.glow}
          before:content-[''] before:absolute before:inset-0 before:bg-[rgba(255,255,255,0.1)] before:animate-[scanline_4s_linear_infinite]
          after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:via-[rgba(255,255,255,0.1)] after:to-transparent after:animate-[flicker_2s_infinite]`
-      : `text-gray-200 hover:text-white ${colorClasses.hover} hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]
-         hover:ring-1 hover:ring-offset-1 hover:ring-offset-gray-900 hover:ring-opacity-40 ${colorClasses.hoverGlow}`;
+      : `text-gray-300 hover:text-white ${colorClasses.hover} hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.1)]
+         hover:ring-1 hover:ring-offset-1 hover:ring-offset-black hover:ring-opacity-40 ${colorClasses.hoverGlow}`;
 
     return `${baseStyles} ${textStyles}`;
   };
@@ -142,11 +140,11 @@ const Navbar = () => {
       label: "About Me",
       icon: FaUser,
       colorClasses: {
-        active: "bg-yellow-500 hover:bg-yellow-600",
-        hover: "hover:bg-yellow-500",
-        glow: "ring-yellow-400 shadow-[0_0_20px_rgba(234,179,8,0.5),inset_0_0_10px_rgba(234,179,8,0.2)]",
+        active: "bg-white text-black hover:bg-gray-200",
+        hover: "hover:bg-white/20 hover:text-white",
+        glow: "ring-white shadow-[0_0_20px_rgba(255,255,255,0.3),inset_0_0_10px_rgba(255,255,255,0.1)]",
         hoverGlow:
-          "hover:ring-yellow-400 hover:shadow-[0_0_15px_rgba(234,179,8,0.3)]",
+          "hover:ring-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
       },
     },
     {
@@ -154,11 +152,11 @@ const Navbar = () => {
       label: "Projects",
       icon: FaCode,
       colorClasses: {
-        active: "bg-emerald-600 hover:bg-emerald-700",
-        hover: "hover:bg-emerald-600",
-        glow: "ring-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.5),inset_0_0_10px_rgba(52,211,153,0.2)]",
+        active: "bg-white text-black hover:bg-gray-200",
+        hover: "hover:bg-white/20 hover:text-white",
+        glow: "ring-white shadow-[0_0_20px_rgba(255,255,255,0.3),inset_0_0_10px_rgba(255,255,255,0.1)]",
         hoverGlow:
-          "hover:ring-emerald-400 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)]",
+          "hover:ring-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
       },
     },
     {
@@ -166,11 +164,11 @@ const Navbar = () => {
       label: "Experience",
       icon: FaBriefcase,
       colorClasses: {
-        active: "bg-purple-600 hover:bg-purple-700",
-        hover: "hover:bg-purple-600",
-        glow: "ring-purple-400 shadow-[0_0_20px_rgba(192,132,252,0.5),inset_0_0_10px_rgba(192,132,252,0.2)]",
+        active: "bg-white text-black hover:bg-gray-200",
+        hover: "hover:bg-white/20 hover:text-white",
+        glow: "ring-white shadow-[0_0_20px_rgba(255,255,255,0.3),inset_0_0_10px_rgba(255,255,255,0.1)]",
         hoverGlow:
-          "hover:ring-purple-400 hover:shadow-[0_0_15px_rgba(192,132,252,0.3)]",
+          "hover:ring-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
       },
     },
     {
@@ -178,11 +176,11 @@ const Navbar = () => {
       label: "Education",
       icon: FaGraduationCap,
       colorClasses: {
-        active: "bg-amber-600 hover:bg-amber-700",
-        hover: "hover:bg-amber-600",
-        glow: "ring-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.5),inset_0_0_10px_rgba(251,191,36,0.2)]",
+        active: "bg-white text-black hover:bg-gray-200",
+        hover: "hover:bg-white/20 hover:text-white",
+        glow: "ring-white shadow-[0_0_20px_rgba(255,255,255,0.3),inset_0_0_10px_rgba(255,255,255,0.1)]",
         hoverGlow:
-          "hover:ring-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)]",
+          "hover:ring-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
       },
     },
     {
@@ -190,24 +188,11 @@ const Navbar = () => {
       label: "Contact",
       icon: FaEnvelope,
       colorClasses: {
-        active: "bg-blue-600 hover:bg-blue-700",
-        hover: "hover:bg-blue-600",
-        glow: "ring-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.5),inset_0_0_10px_rgba(96,165,250,0.2)]",
+        active: "bg-white text-black hover:bg-gray-200",
+        hover: "hover:bg-white/20 hover:text-white",
+        glow: "ring-white shadow-[0_0_20px_rgba(255,255,255,0.3),inset_0_0_10px_rgba(255,255,255,0.1)]",
         hoverGlow:
-          "hover:ring-blue-400 hover:shadow-[0_0_15px_rgba(96,165,250,0.3)]",
-      },
-    },
-    {
-      id: "blog",
-      label: "Blog",
-      icon: FaBook,
-      href: "/blog", // Added href
-      colorClasses: {
-        active: "bg-red-600 hover:bg-red-700",
-        hover: "hover:bg-red-600",
-        glow: "ring-red-400 shadow-[0_0_20px_rgba(248,113,113,0.5),inset_0_0_10px_rgba(248,113,113,0.2)]",
-        hoverGlow:
-          "hover:ring-red-400 hover:shadow-[0_0_15px_rgba(248,113,113,0.3)]",
+          "hover:ring-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
       },
     },
   ];
@@ -216,8 +201,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-gray-900/80 shadow-[0_4px_0px_0px_rgba(0,0,0,0.3),inset_0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm"
-          : "bg-gray-800"
+          ? "bg-black/90 shadow-[0_4px_0px_0px_rgba(255,255,255,0.1),inset_0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm border-b border-white/20"
+          : "bg-black border-b border-white/10"
       }`}
     >
       {/* Scanline effect */}
@@ -228,9 +213,9 @@ const Navbar = () => {
           {/* Hamburger Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2 hover:bg-gray-700 rounded-lg transition-colors
-              hover:ring-2 hover:ring-gray-600 hover:shadow-[0_0_10px_rgba(75,85,99,0.3)]
-              relative overflow-hidden group"
+            className="md:hidden text-white p-2 hover:bg-gray-800 rounded-lg transition-colors
+              hover:ring-2 hover:ring-white/30 hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]
+              relative overflow-hidden group border border-white/20"
             aria-label="Toggle menu"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent group-hover:animate-[scanline_2s_linear_infinite]"></div>

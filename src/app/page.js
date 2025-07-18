@@ -3,7 +3,6 @@ import ProjectsSection from "./components/sections/ProjectsSection";
 import ExperienceSection from "./components/sections/ExperienceSection";
 import EducationSection from "./components/sections/EducationSection";
 import ContactSection from "./components/sections/ContactSection";
-import BlogSection from "./components/sections/BlogSection";
 import Navbar from "./components/Navbar";
 
 export default function Home() {
@@ -15,7 +14,7 @@ export default function Home() {
       <ExperienceSection />
       <EducationSection />
       <ContactSection />
-      <BlogSection />
+      
     </main>
   );
 }

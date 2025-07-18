@@ -125,12 +125,12 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden"
+      className="min-h-screen w-full flex items-center justify-center bg-black relative overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gray-900 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gray-800 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 py-20 relative z-10">
@@ -138,26 +138,26 @@ export default function ContactSection() {
           
           {/* Section Header */}
           <div className="text-center space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center px-4 py-2 bg-gray-900 border-2 border-white text-white rounded-full text-sm font-medium">
               <FaEnvelope className="w-4 h-4 mr-2" />
               Let's Connect
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white">
               <span className="text-gradient">{contactContent.title}</span>
             </h2>
-            <p className="text-xl text-gray-800 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               {contactContent.description}
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-8 lg:p-12 animate-fade-in-up">
+          <div className="bg-black border-2 border-white rounded-lg shadow-lg p-8 lg:p-12 animate-fade-in-up">
             <form onSubmit={handleSubmit} className="space-y-8">
               
               {/* Name and Email Row */}
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                  <label className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
                     <FaUser className="w-4 h-4" />
                     Your Name
                   </label>
@@ -172,11 +172,11 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 border-2 rounded-lg ${
                       errors.name 
                         ? "border-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:border-blue-500"
-                    } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
+                        : "border-black focus:border-gray-600"
+                    } focus:outline-none transition-colors duration-300 text-white placeholder-gray-400 bg-black border-2 border-white`}
                   />
                   {errors.name && (
-                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                    <p className="mt-2 text-sm text-white flex items-center gap-1">
                       <FaExclamationCircle className="w-3 h-3" />
                       {errors.name}
                     </p>
@@ -184,7 +184,7 @@ export default function ContactSection() {
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                  <label className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
                     <FaEnvelope className="w-4 h-4" />
                     Your Email
                   </label>
@@ -199,11 +199,11 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 border-2 rounded-lg ${
                       errors.email 
                         ? "border-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:border-blue-500"
-                    } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
+                        : "border-black focus:border-gray-600"
+                    } focus:outline-none transition-colors duration-300 text-white placeholder-gray-400 bg-black border-2 border-white`}
                   />
                   {errors.email && (
-                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                    <p className="mt-2 text-sm text-white flex items-center gap-1">
                       <FaExclamationCircle className="w-3 h-3" />
                       {errors.email}
                     </p>
@@ -213,7 +213,7 @@ export default function ContactSection() {
 
               {/* Subject */}
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                <label className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
                   <FaEdit className="w-4 h-4" />
                   Subject
                 </label>
@@ -241,7 +241,7 @@ export default function ContactSection() {
 
               {/* Message */}
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                <label className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
                   <FaComments className="w-4 h-4" />
                   Message
                 </label>
@@ -288,16 +288,16 @@ export default function ContactSection() {
 
               {/* Status Messages */}
               {status === "success" && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-700 text-center flex items-center justify-center gap-2">
+                <div className="p-4 bg-gray-800 border-2 border-white rounded-lg">
+                  <p className="text-white text-center flex items-center justify-center gap-2">
                     <FaCheckCircle className="w-5 h-5" />
                     Message sent successfully! I'll get back to you soon.
                   </p>
                 </div>
               )}
               {status === "error" && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-700 text-center flex items-center justify-center gap-2">
+                <div className="p-4 bg-gray-800 border-2 border-white rounded-lg">
+                  <p className="text-white text-center flex items-center justify-center gap-2">
                     <FaExclamationCircle className="w-5 h-5" />
                     Failed to send message. Please try again or contact me directly.
                   </p>
