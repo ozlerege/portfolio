@@ -1,5 +1,5 @@
 "use client";
-import { FaLinkedin, FaGithub, FaDownload, FaArrowRight } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaDownload, FaArrowRight, FaPhone } from "react-icons/fa";
 import { IoGameController } from "react-icons/io5";
 import { FaCubes } from "react-icons/fa";
 import { GiRaceCar } from "react-icons/gi";
@@ -12,6 +12,7 @@ const iconComponents = {
   IoGameController,
   FaCubes,
   GiRaceCar,
+  FaPhone,
 };
 
 export default function AboutSection() {
