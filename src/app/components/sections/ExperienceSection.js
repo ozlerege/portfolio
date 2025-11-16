@@ -1,4 +1,10 @@
-import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaBuilding, FaCheckCircle } from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaBuilding,
+  FaCheckCircle,
+} from "react-icons/fa";
 import experienceContent from "../../../data/experience.json";
 
 export default function ExperienceSection() {
@@ -12,22 +18,17 @@ export default function ExperienceSection() {
         <div className="absolute top-32 left-32 w-96 h-96 bg-gray-900 rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 right-32 w-80 h-80 bg-gray-800 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-5xl mx-auto space-y-16">
-          
           {/* Section Header */}
           <div className="text-center space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-gray-900 border-2 border-white text-white rounded-full text-sm font-medium">
-              <FaBriefcase className="w-4 h-4 mr-2" />
-              Professional Journey
-            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
               <span className="text-gradient">{experienceContent.title}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              My professional journey in software development, showcasing growth, 
-              impact, and continuous learning.
+              My professional journey in software development, showcasing
+              growth, impact, and continuous learning.
             </p>
           </div>
 
@@ -50,17 +51,19 @@ export default function ExperienceSection() {
                         {experience.role}
                       </h3>
                     </div>
-                    
+
                     <div className="flex items-center gap-2 text-lg text-gray-300">
                       <FaBuilding className="w-4 h-4" />
-                      <span className="font-semibold">{experience.company}</span>
+                      <span className="font-semibold">
+                        {experience.company}
+                      </span>
                     </div>
-                    
+
                     <p className="text-gray-400 italic leading-relaxed">
                       {experience.companyDescription}
                     </p>
                   </div>
-                  
+
                   <div className="flex-shrink-0 space-y-2 text-sm">
                     <div className="flex items-center gap-2 text-gray-300">
                       <FaCalendarAlt className="w-4 h-4" />
@@ -81,7 +84,10 @@ export default function ExperienceSection() {
                   </h4>
                   <div className="grid grid-cols-1 gap-3">
                     {experience.achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start gap-3 p-3 bg-gray-900 border-2 border-white rounded-professional">
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 p-3  border-2 border-white rounded-professional"
+                      >
                         <div className="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></div>
                         <p className="text-gray-200 leading-relaxed font-medium">
                           {achievement}
@@ -110,7 +116,6 @@ export default function ExperienceSection() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

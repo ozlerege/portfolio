@@ -12,22 +12,17 @@ export default function ProjectsSection() {
         <div className="absolute top-40 left-40 w-80 h-80 bg-gray-900 rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 right-40 w-64 h-64 bg-gray-800 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16">
-          
           {/* Section Header */}
           <div className="text-center space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-gray-900 border-2 border-white text-white rounded-full text-sm font-medium">
-              <FaCode className="w-4 h-4 mr-2" />
-              My Work
-            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
               <span className="text-gradient">{projectsContent.title}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A collection of projects showcasing my expertise in full-stack development, 
-              AI integration, and modern web technologies.
+              A collection of projects showcasing my expertise in full-stack
+              development, AI integration, and modern web technologies.
             </p>
           </div>
 
@@ -63,7 +58,7 @@ export default function ProjectsSection() {
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gray-800 text-white text-sm rounded-full border-2 border-white hover:bg-gray-700 transition-colors"
+                        className="px-3 py-1 bg-white text-black text-sm rounded-full border-2 border-black hover:bg-gray-200 transition-colors"
                       >
                         {tech}
                       </span>
@@ -101,7 +96,6 @@ export default function ProjectsSection() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

@@ -1,6 +1,14 @@
 "use client";
 import { useState } from "react";
-import { FaEnvelope, FaUser, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaEdit, FaComments } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaUser,
+  FaPaperPlane,
+  FaCheckCircle,
+  FaExclamationCircle,
+  FaEdit,
+  FaComments,
+} from "react-icons/fa";
 
 const contactContent = {
   title: "Get in Touch",
@@ -132,16 +140,11 @@ export default function ContactSection() {
         <div className="absolute top-20 left-20 w-80 h-80 bg-gray-900 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-gray-800 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-4xl mx-auto space-y-16">
-          
           {/* Section Header */}
           <div className="text-center space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-gray-900 border-2 border-white text-white rounded-full text-sm font-medium">
-              <FaEnvelope className="w-4 h-4 mr-2" />
-              Let's Connect
-            </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
               <span className="text-gradient">{contactContent.title}</span>
             </h2>
@@ -153,7 +156,6 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div className="bg-black border-2 border-white rounded-lg shadow-lg p-8 lg:p-12 animate-fade-in-up">
             <form onSubmit={handleSubmit} className="space-y-8">
-              
               {/* Name and Email Row */}
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2">
@@ -170,19 +172,19 @@ export default function ContactSection() {
                     required
                     placeholder="Enter your full name"
                     className={`w-full px-4 py-3 border-2 rounded-lg ${
-                      errors.name 
-                        ? "border-red-500 focus:border-red-500" 
+                      errors.name
+                        ? "border-red-500 focus:border-red-500"
                         : "border-black focus:border-gray-600"
-                    } focus:outline-none transition-colors duration-300 text-white placeholder-gray-400 bg-black border-2 border-white`}
+                    } focus:outline-none transition-colors duration-300 text-black placeholder-gray-400 bg-white border-2 border-black`}
                   />
                   {errors.name && (
-                    <p className="mt-2 text-sm text-white flex items-center gap-1">
+                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
                       <FaExclamationCircle className="w-3 h-3" />
                       {errors.name}
                     </p>
                   )}
                 </div>
-                
+
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm font-semibold text-white mb-3">
                     <FaEnvelope className="w-4 h-4" />
@@ -197,13 +199,13 @@ export default function ContactSection() {
                     required
                     placeholder="Enter your email address"
                     className={`w-full px-4 py-3 border-2 rounded-lg ${
-                      errors.email 
-                        ? "border-red-500 focus:border-red-500" 
+                      errors.email
+                        ? "border-red-500 focus:border-red-500"
                         : "border-black focus:border-gray-600"
-                    } focus:outline-none transition-colors duration-300 text-white placeholder-gray-400 bg-black border-2 border-white`}
+                    } focus:outline-none transition-colors duration-300 text-black placeholder-gray-400 bg-white border-2 border-black`}
                   />
                   {errors.email && (
-                    <p className="mt-2 text-sm text-white flex items-center gap-1">
+                    <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
                       <FaExclamationCircle className="w-3 h-3" />
                       {errors.email}
                     </p>
@@ -226,8 +228,8 @@ export default function ContactSection() {
                   required
                   placeholder="What would you like to discuss?"
                   className={`w-full px-4 py-3 border-2 rounded-lg ${
-                    errors.subject 
-                      ? "border-red-500 focus:border-red-500" 
+                    errors.subject
+                      ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-blue-500"
                   } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white`}
                 />
@@ -254,8 +256,8 @@ export default function ContactSection() {
                   rows="6"
                   placeholder="Tell me about your project, idea, or opportunity..."
                   className={`w-full px-4 py-3 border-2 rounded-lg ${
-                    errors.message 
-                      ? "border-red-500 focus:border-red-500" 
+                    errors.message
+                      ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-blue-500"
                   } focus:outline-none transition-colors duration-300 text-gray-900 placeholder-gray-500 bg-white resize-none`}
                 ></textarea>
@@ -299,7 +301,8 @@ export default function ContactSection() {
                 <div className="p-4 bg-gray-800 border-2 border-white rounded-lg">
                   <p className="text-white text-center flex items-center justify-center gap-2">
                     <FaExclamationCircle className="w-5 h-5" />
-                    Failed to send message. Please try again or contact me directly.
+                    Failed to send message. Please try again or contact me
+                    directly.
                   </p>
                 </div>
               )}

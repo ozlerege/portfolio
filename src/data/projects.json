@@ -2,7 +2,34 @@
   "title": "Projects",
   "projects": [
     {
+      "id": 0,
+      "title": "CodeCat Discord Code Agent",
+      "description": "AI-powered open-source Discord Developer Agent enabling teams to execute coding and deployment tasks directly from Discord via natural language. Built using Next.js, OpenRouter, Supabase Auth, and Discord API. ",
+      "technologies": [
+        "Next.js",
+        "OpenRouter",
+        "Supabase Auth",
+        "Discord API",
+        "Python",
+        "Railway"
+      ]
+    },
+    {
       "id": 1,
+      "title": "Veru AI Discord Ticket Tool",
+      "description": "Advanced AI agent for automated ticket resolution and chatbot operations, integrating web scraping, semantic search, and RAG-based adaptive learning to serve large Discord communities.  ",
+      "technologies": [
+        "Python",
+        "Discord.py",
+        "Web Scraping",
+        "Semantic Search",
+        "RAG",
+        "Railway",
+        "Next.js"
+      ]
+    },
+    {
+      "id": 2,
       "title": "Portfolio Website",
       "description": "Developed a portfolio website to showcase my background, and sharing blog posts.",
       "technologies": [
@@ -14,7 +41,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Web3 Ordinals Hub",
       "description": "Built a Web3 hub for Ordinals creators and community, featuring a high-tech Discord bot to enhance user engagement and community efficiency where maintaining over 8000 users.",
       "technologies": [
@@ -27,13 +54,13 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Raven's Progressive Matrices Agent",
       "description": "An AI agent to address Raven's Progressive Matrices intelligence test.",
       "technologies": ["AI", "Machine Learning", "Python"]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Fantasy Music",
       "description": "A web app that allows you to create fantasy leagues based on brackets of music artists chosen from Spotify's Top 50 weekly charts.",
       "technologies": [
@@ -47,25 +74,25 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Monster Classification Agent",
       "description": "An AI agent capable of diagnosing diseases in monsters.",
       "technologies": ["AI", "Machine Learning", "Python", "Classification"]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Block World Problem",
       "description": "Creating an algorithm to transform arbitrary initial arrangements of blocks into a specified goal arrangement.",
       "technologies": ["Algorithms", "Python", "Problem Solving"]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Sheep & Wolves",
       "description": "An AI agent that can solve the Sheep and Wolves problem for an arbitrary number of initial wolves and sheep using Semantic Networks.",
       "technologies": ["AI", "Semantic Networks", "Python"]
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Crime Rate Prediction",
       "description": "Predicting Crime Rate of Cities in Georgia Based on Demographics And House Rents.",
       "technologies": [
@@ -76,7 +103,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Game Critics Web App",
       "description": "A web app that allows users to rate and review games.",
       "technologies": ["React", "Node.js", "JavaScript"]
